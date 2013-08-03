@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @keyholder.username %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @keyholder.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @keyholder.last_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @keyholder.user_id %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @keyholder.house %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @keyholder.postcode %>
+</p>
+
+<%= link_to 'Edit', edit_keyholder_path(@keyholder) %> |
+<%= link_to 'Back', keyholders_path %>

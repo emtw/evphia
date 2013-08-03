@@ -1,0 +1,77 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_names %><br>
+    <%= f.text_field :middle_names %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.text_field :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :line_1 %><br>
+    <%= f.text_field :line_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :line_2 %><br>
+    <%= f.text_field :line_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :line_3 %><br>
+    <%= f.text_field :line_3 %>
+  </div>
+  <div class="field">
+    <%= f.label :town %><br>
+    <%= f.text_field :town %>
+  </div>
+  <div class="field">
+    <%= f.label :county %><br>
+    <%= f.text_field :county %>
+  </div>
+  <div class="field">
+    <%= f.label :postcode %><br>
+    <%= f.text_field :postcode %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_number %><br>
+    <%= f.text_field :contact_number %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :keyholder_id %><br>
+    <%= f.number_field :keyholder_id %>
+  </div>
+  <div class="field">
+    <%= f.label :guest_id %><br>
+    <%= f.number_field :guest_id %>
+  </div>  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

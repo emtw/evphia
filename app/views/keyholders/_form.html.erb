@@ -1,0 +1,45 @@
+<%= form_for(@keyholder) do |f| %>
+  <% if @keyholder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@keyholder.errors.count, "error") %> prohibited this keyholder from being saved:</h2>
+
+      <ul>
+      <% @keyholder.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :house %><br>
+    <%= f.text_field :house %>
+  </div>
+  <div class="field">
+    <%= f.label :postcode %><br>
+    <%= f.text_field :postcode %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

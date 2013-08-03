@@ -1,0 +1,43 @@
+<h1>Listing keyholders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>User</th>
+      <th>House</th>
+      <th>Postcode</th>
+      <th>Keyholder for</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keyholders.each do |keyholder| %>
+      <tr>
+        <td><%= keyholder.username %></td>
+        <td><%= keyholder.first_name %></td>
+        <td><%= keyholder.last_name %></td>
+        <td><%= keyholder.user_id %></td>
+        <td><%= keyholder.house %></td>
+        <td><%= keyholder.postcode %></td>
+        <td><% if keyholder.user %>
+        	<%= keyholder.user.first_name %> <%= keyholder.user.last_name %>
+        	<% else %>
+        	<p>n/a</p></td>
+        	<% end %>
+        <td><%= link_to 'Show', keyholder %></td>
+        <td><%= link_to 'Edit', edit_keyholder_path(keyholder) %></td>
+        <td><%= link_to 'Destroy', keyholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Keyholder", new_keyholder_registration_path %>
