@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
          
-  has_one :keyholder
-  has_one :guest
+  has_one :keyholder, dependent: :destroy
+  has_one :guest, dependent: :destroy
     
 end

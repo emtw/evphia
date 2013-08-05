@@ -42,7 +42,7 @@
         <td><%= user.username %></td>
         <td><%= user.keyholder_id %></td>
         <td><%= user.guest_id %></td>
-        <td><% if current_user || current_keyholder %>
+        <td><% if current_user || current_keyholder || current_guest %>
         		<% if can? :read, user %>
 		        	<%= link_to 'Show', user %>
 		        	<% else %>

@@ -30,9 +30,23 @@
         	<% else %>
         	<p>n/a</p></td>
         	<% end %>
-        <td><%= link_to 'Show', keyholder %></td>
-        <td><%= link_to 'Edit', edit_keyholder_path(keyholder) %></td>
-        <td><%= link_to 'Destroy', keyholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if current_user || current_keyholder || current_guest %>
+        		<% if can? :read, keyholder %>
+		        	<%= link_to 'Show', keyholder %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :update, keyholder %>
+		        	<%= link_to 'Edit', edit_keyholder_path(keyholder) %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :destroy, keyholder %>
+		        	<%= link_to 'Destroy', keyholder, method: :delete, data: { confirm: 'Are you sure?' } %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		     <% end %>
       </tr>
     <% end %>
   </tbody>

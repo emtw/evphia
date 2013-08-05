@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :except => [:myaccount]
+  before_filter :authorize, only: [:myaccount]
 
   # GET /users
   # GET /users.json
@@ -59,6 +61,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def myaccount
+    if user_signed_in?
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+    else
+      redirect_to root_path, notice: 'Please login to view your account'
     end
   end
 

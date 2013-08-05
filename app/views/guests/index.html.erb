@@ -20,9 +20,23 @@
         <td><%= guest.name %></td>
         <td><%= guest.user_id %></td>
         <td><%= guest.user.first_name %> <%= guest.user.last_name %></td>
-        <td><%= link_to 'Show', guest %></td>
-        <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
-        <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if current_user || current_keyholder || current_guest %>
+        		<% if can? :read, guest %>
+		        	<%= link_to 'Show', guest %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :update, guest %>
+		        	<%= link_to 'Edit', edit_guest_path(guest) %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :destroy, guest %>
+		        	<%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		     <% end %>
       </tr>
     <% end %>
   </tbody>

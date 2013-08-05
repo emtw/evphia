@@ -1,5 +1,7 @@
 class KeyholdersController < ApplicationController
   before_action :set_keyholder, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :except => [:myaccount]
+  before_filter :authorize_keyholder, only: [:myaccount]
 
   # GET /keyholders
   # GET /keyholders.json
@@ -55,10 +57,28 @@ class KeyholdersController < ApplicationController
   # DELETE /keyholders/1
   # DELETE /keyholders/1.json
   def destroy
+    @user = @keyholder.user
     @keyholder.destroy
+    @user.keyholder_id = nil
+    @user.save
     respond_to do |format|
       format.html { redirect_to keyholders_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def myaccount
+    if user_signed_in?
+      redirect_to :controller => "/users", :id => current_user.id, :action => 'myaccount'
+    elsif keyholder_signed_in?
+    @keyholder = Keyholder.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+    else
+      redirect_to root_path, notice: 'Please login to view your account'
     end
   end
 
@@ -74,4 +94,5 @@ class KeyholdersController < ApplicationController
     def keyholder_params
       params.require(:keyholder).permit(:username, :first_name, :last_name, :user_id, :house, :postcode, :keyholder)
     end
+    
 end

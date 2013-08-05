@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+<h1>My Account</h1>
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Middle names:</strong>
+  <%= @user.middle_names %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @user.date_of_birth %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @user.gender %>
+</p>
+
+<p>
+  <strong>Line 1:</strong>
+  <%= @user.line_1 %>
+</p>
+
+<p>
+  <strong>Line 2:</strong>
+  <%= @user.line_2 %>
+</p>
+
+<p>
+  <strong>Line 3:</strong>
+  <%= @user.line_3 %>
+</p>
+
+<p>
+  <strong>Town:</strong>
+  <%= @user.town %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @user.county %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @user.postcode %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @user.contact_number %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Keyholder:</strong>
+  <%= @user.keyholder_id %>
+</p>
+
+<p>
+  <strong>Guest:</strong>
+  <%= @user.guest_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

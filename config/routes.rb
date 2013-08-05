@@ -1,19 +1,34 @@
 ForgotNotIi::Application.routes.draw do
   devise_for :guests, :controllers => { :registrations => "registrations" }
-  resources :guests
+  resources :guests do
+    member do
+      get 'myaccount'
+    end
+  end
 
   devise_for :keyholders, :controllers => { :registrations => "registrations" }
-  devise_for :users
-  resources :keyholders
+  resources :keyholders do
+    member do
+      get 'myaccount'
+    end
+  end
 
-  resources :users
+  devise_for :users
+  resources :users do
+    member do
+      get 'myaccount'
+    end
+  end
   
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+
+  get "public/index"
+  
+  root :to => "public#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
