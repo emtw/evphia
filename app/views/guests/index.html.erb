@@ -3,10 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>User</th>
       <th>Username</th>
-      <th>Guest</th>
+      <th>Name</th>
+      <th>User ID</th>
+      <th>Guest for</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +16,10 @@
   <tbody>
     <% @guests.each do |guest| %>
       <tr>
+      	<td><%= guest.username %></td>
         <td><%= guest.name %></td>
         <td><%= guest.user_id %></td>
-        <td><%= guest.username %></td>
-        <td><%= guest.guest %></td>
+        <td><%= guest.user.first_name %> <%= guest.user.last_name %></td>
         <td><%= link_to 'Show', guest %></td>
         <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
         <td><%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
