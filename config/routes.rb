@@ -1,4 +1,6 @@
 ForgotNotIi::Application.routes.draw do
+  resources :funerals
+
   devise_for :guests, :controllers => { :registrations => "registrations" }
   resources :guests do
     member do

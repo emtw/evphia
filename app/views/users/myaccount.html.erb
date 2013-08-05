@@ -67,13 +67,20 @@
 
 <p>
   <strong>Keyholder:</strong>
-  <%= @user.keyholder_id %>
+  <%= @user.keyholder.first_name %> <%= @user.keyholder.last_name %>
 </p>
 
 <p>
-  <strong>Guest:</strong>
-  <%= @user.guest_id %>
+  <strong>Guest account set up?:</strong>
+  <% if @user.guest.present? %>Yes
+  <% else %>No
+  <% end %>
 </p>
 
+
+<%= link_to 'Funeral Plans', 
+  			current_user.funeral.present? ? 
+    		funeral_path(current_user.funeral) : 
+    		new_funeral_path %><br />
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

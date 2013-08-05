@@ -1,0 +1,81 @@
+<%= form_for(@funeral) do |f| %>
+  <% if @funeral.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@funeral.errors.count, "error") %> prohibited this funeral from being saved:</h2>
+
+      <ul>
+      <% @funeral.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :funeral_pref %><br>
+    <%= f.text_field :funeral_pref %>
+  </div>
+  <div class="field">
+    <%= f.label :casket_pref %><br>
+    <%= f.text_area :casket_pref %>
+  </div>
+  <div class="field">
+    <%= f.label :other_pref %><br>
+    <%= f.text_field :other_pref %>
+  </div>
+  <div class="field">
+    <%= f.label :service_location %><br>
+    <%= f.text_field :service_location %>
+  </div>
+  <div class="field">
+    <%= f.label :burial_location %><br>
+    <%= f.text_field :burial_location %>
+  </div>
+  <div class="field">
+    <%= f.label :ashes_location %><br>
+    <%= f.text_field :ashes_location %>
+  </div>
+  <div class="field">
+    <%= f.label :songs_pref %><br>
+    <%= f.text_area :songs_pref %>
+  </div>
+  <div class="field">
+    <%= f.label :readings %><br>
+    <%= f.text_area :readings %>
+  </div>
+  <div class="field">
+    <%= f.label :speakers %><br>
+    <%= f.text_area :speakers %>
+  </div>
+  <div class="field">
+    <%= f.label :final_words %><br>
+    <%= f.text_area :final_words %>
+  </div>
+  <div class="field">
+    <%= f.label :dress_code %><br>
+    <%= f.text_field :dress_code %>
+  </div>
+  <div class="field">
+    <%= f.label :flowers %><br>
+    <%= f.text_field :flowers %>
+  </div>
+  <div class="field">
+    <%= f.label :donations_to %><br>
+    <%= f.text_field :donations_to %>
+  </div>
+  <div class="field">
+    <%= f.label :wake %><br>
+    <%= f.text_area :wake %>
+  </div>
+  <div class="field">
+    <%= f.label :epitaph %><br>
+    <%= f.text_area :epitaph %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_reqs %><br>
+    <%= f.text_area :additional_reqs %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

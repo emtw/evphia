@@ -1,0 +1,59 @@
+<h1>Listing funerals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funeral pref</th>
+      <th>Casket pref</th>
+      <th>Other pref</th>
+      <th>Service location</th>
+      <th>Burial location</th>
+      <th>Ashes location</th>
+      <th>Songs pref</th>
+      <th>Readings</th>
+      <th>Speakers</th>
+      <th>Final words</th>
+      <th>Dress code</th>
+      <th>Flowers</th>
+      <th>Donations to</th>
+      <th>Wake</th>
+      <th>Epitaph</th>
+      <th>Additional reqs</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funerals.each do |funeral| %>
+      <tr>
+        <td><%= funeral.funeral_pref %></td>
+        <td><%= funeral.casket_pref %></td>
+        <td><%= funeral.other_pref %></td>
+        <td><%= funeral.service_location %></td>
+        <td><%= funeral.burial_location %></td>
+        <td><%= funeral.ashes_location %></td>
+        <td><%= funeral.songs_pref %></td>
+        <td><%= funeral.readings %></td>
+        <td><%= funeral.speakers %></td>
+        <td><%= funeral.final_words %></td>
+        <td><%= funeral.dress_code %></td>
+        <td><%= funeral.flowers %></td>
+        <td><%= funeral.donations_to %></td>
+        <td><%= funeral.wake %></td>
+        <td><%= funeral.epitaph %></td>
+        <td><%= funeral.additional_reqs %></td>
+        <td><%= funeral.user_id %></td>
+        <td><%= link_to 'Show', funeral %></td>
+        <td><%= link_to 'Edit', edit_funeral_path(funeral) %></td>
+        <td><%= link_to 'Destroy', funeral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Funeral', new_funeral_path %>

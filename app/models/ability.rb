@@ -12,6 +12,7 @@ class Ability
       can [:create, :read, :update, :destroy], Guest do |guest|
         guest.user_id == model.id
       end
+      can :manage, Funeral, :id => model.id
     end
     
     if model.has_attribute?("keyholder") && (model.keyholder == true)
